@@ -1,13 +1,16 @@
 ---
 import Layout from "../layouts/Base.astro";
-import Imgaccueil from "../assets/accueil.webp";
-import LogoMonbeliard from "../assets/logomontbeliard.svg";
-import LogoNFC from "../assets/logonfc.svg";
-import LogoPC from "../assets/logopassculture.svg";
+import Intro from "../components/Intro.astro";
+
 ---
 
 <Layout>
-  <div class="">
+  <Intro
+    title="À Propos"
+    image="src/assets/apropos.webp"
+    texte="Bienvenue sur la page officielle de notre festival de films d'horreur ! Découvrez l’histoire fascinante de cet événement unique, son équipe passionnée, et les valeurs qui façonnent chaque édition terrifiante."
+  />
+  <div class="m-4">
     <h2>Historique</h2>
     <p>
       Créé en 2024 par une équipe de passionnés du cinéma de genre, notre
