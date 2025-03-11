@@ -58,3 +58,5 @@ export async function ActInvitesByName(nom) {
 export async function updateActiviteById(id, data) {
   await pb.collection('activites').update(id, data) ;
 } 
+
+
