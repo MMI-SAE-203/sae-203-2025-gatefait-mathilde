@@ -15,7 +15,7 @@ const film= await OneID(id);
 <Layout>
   <Intro
     title="Détails du film"
-    image="src/assets/films.webp"
+    image="/src/assets/films.webp"
     texte="Ici nous allons nous intéresser plus en détail à la mise en avant d’un film."
   />
   <div class="">
@@ -33,7 +33,7 @@ const film= await OneID(id);
   <li>Production : {film.production}</li>
   <li>
     <a href={film.bande_annonce} class="text-blue-500 underline">
-      Découvrir le film
+      Bande annonce
     </a>
   </li>
 </Layout>

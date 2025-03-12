@@ -47,9 +47,9 @@ export async function OneID(id) {
 
 //activite par son id
 export async function OneIDAct(id) {
-    let activite = await pb.collection('activites').getOne(id) ;
+    let activite = await pb.collection('activites').getOne(id, { expand: 'invites' }) ;
     activite.imageUrl = pb.files.getURL(activite, activite.image);
-    return invite; 
+    return activite; 
 }
 
 //invite par son id
