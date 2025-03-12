@@ -1,6 +1,10 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+
+import { allActivites } from "../../../backend/backend.mjs";
+const activites = await allActivites();
+console.log(activites);
 ---
 
 <Layout>
@@ -9,4 +13,26 @@ import Intro from "../../components/Intro.astro";
     image="src/assets/activites.webp"
     texte="Vous trouverez ici l’ensemble des activités proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passez un bon moment de partage et d’horreur."
   />
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    {
+      activites.map((activite) => (
+        <div class="border-2 border-gray-200 p-4 m-4">
+          <ul>
+            <li>
+              <img
+                src={activite.imgUrl}
+                alt={`Affiche du film ${activite.nom}`}
+                class="w-full h-auto"
+              />
+            </li>
+            <li>Nom: {activite.nom}</li>
+            <li>Type : {activite.type_activite}</li>
+          </ul>
+          <a href={`/activites/${activite.id}`} class="text-blue-500 underline">
+            En savoir plus sur l'activité
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </Layout>

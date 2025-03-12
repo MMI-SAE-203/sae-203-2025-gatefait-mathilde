@@ -1,76 +1,78 @@
 ---
 import Layout from "../layouts/Base.astro";
 import Imgaccueil from "../assets/accueil.webp";
-import LogoMonbeliard from "../assets/logomontbeliard.svg";
-import LogoNFC from "../assets/logonfc.svg";
-import LogoPC from "../assets/logopassculture.svg";
+import Button from "../components/Bouton.astro";
 ---
 
 <Layout>
-  <div class="">
-    <h1>Festiv'Halloween</h1>
-    <h2>29 - 31 octobre 2025</h2>
-    <img src="../assets/accueil.webp" alt="accueil" />
-    <p>
-      Le festiv’halloween est un festival de cinéma axé sur l’horreur. Pour
-      passer un agréable moment de peur et de terreur, passez 3 nuits avec nous
-      pour un marathon de films jusqu’au bout de la nuit. En harmonie avec la
-      période d’halloween, ce dernier se déroulera pendant les nuits du 29, 30
-      et 31 octobre 2024.
-    </p>
-    <h2>Apperçus Programme</h2>
-    <div class="flex gap-7">
-      <div>
-        <p>29/10</p>
-        <p>17h - 19h</p>
-        <p>récolte de bonbons</p>
-        <p>ville</p>
+  <div>
+    <img src="src/assets/accueil.webp" alt="accueil" />
+    <div class="ml-4 mr-4">
+      <div class="-mt-25 text-center">
+        <h1>Festiv' Halloween</h1>
+        <h3>29 - 31 octobre 2025</h3>
       </div>
-      <div>
-        <p>30/10</p>
-        <p>19h - 20h</p>
-        <p>loup garou géanat</p>
-        <p>salle 10</p>
+      <p class="mt-20">
+        Le festiv’halloween est un festival de cinéma axé sur l’horreur. Pour
+        passer un agréable moment de peur et de terreur, passez 3 nuits avec
+        nous pour un marathon de films jusqu’au bout de la nuit. En harmonie
+        avec la période d’halloween, ce dernier se déroulera pendant les nuits
+        du 29, 30 et 31 octobre 2024.
+      </p>
+      <h2 class="mt-10">Apperçus Programme</h2>
+      <div class="flex gap-7 mt-15 mb-15">
+        <div class="bg-white rounded-xl text-black p-4 text-center">
+          <p>29/10</p>
+          <p>17h - 19h</p>
+          <p>récolte de bonbons</p>
+          <p>ville</p>
+        </div>
+        <div class="bg-white rounded-xl text-black p-4 text-center">
+          <p>30/10</p>
+          <p>19h - 20h</p>
+          <p>loup garou géanat</p>
+          <p>salle 10</p>
+        </div>
+        <div class="bg-white rounded-xl text-black p-4 text-center">
+          <p>31/10</p>
+          <p>20h - 21h</p>
+          <p>projection court métrage</p>
+          <p>salle 2</p>
+        </div>
       </div>
-      <div>
-        <p>31/10</p>
-        <p>20h - 21h</p>
-        <p>projection court métrage</p>
-        <p>salle 2</p>
+      <div class="text-right underline">
+        <a class="" href="../pages/..">voir la programmation complète</a>
       </div>
     </div>
-    <a href="../pages/..">voir la programmation complète</a>
-  </div>
-  <nav>
-    <h2>Quelques invités</h2>
+    <nav>
+      <h2>Quelques invités</h2>
+      <div>
+        <img src="src/assets/invite1.webp" alt="invite1" />
+        <p>Acteur film “Ça” Bill Skarsgård</p>
+      </div>
+      <div>
+        <img src="src/assets/invite2.webp" alt="invite1" />
+        <p>Dessinateur Coraline Tadahiro Uesugi</p>
+      </div>
+      <a href="../pages/..">voir tous les invités</a>
+    </nav>
     <div>
-      <img src="../assets/invite1.webp" alt="invite1" />
-      <p>Acteur film “Ça” Bill Skarsgård</p>
+      <h2>Apperçus</h2>
+      <img src="src/assets/destination.webp" alt="carte" />
+      <p>Le Colisée 8 Rue Henri Mouhot 25200 Montbéliard</p>
+      <a href="../pages/..">voir les infos pratiques</a>
     </div>
     <div>
-      <img src="../assets/invite2.webp" alt="invite1" />
-      <p>Dessinateur Coraline Tadahiro Uesugi</p>
+      <img src="src/assets/clown.webp" alt="clown" />
+      <div class="ml-5">
+        <Button Button="Billeterie" />
+      </div>
     </div>
-    <a href="../pages/..">voir tous les invités</a>
-  </nav>
-  <div>
-    <h2>Apperçus</h2>
-    <img src="../assets/destination.webp" alt="carte" />
-    <p>Le Colisée 8 Rue Henri Mouhot 25200 Montbéliard</p>
-    <a href="../pages/..">voir les infos pratiques</a>
-  </div>
-  <div>
-    <img src="../assets/clown.webp" alt="clown" />
-    <div class="ml-5">
-      <button
-        class="px-6 py-2 m-7 bg-red-900 text-white font-semibold rounded-lg shadow-md hover:bg-white transition"
-        >billeterie
-      </button>
+    <div>
+      <img src="/src/assets/logomontbeliard.svg" alt="Logo Montbéliard" />
+      <img src="/src/assets/logonfc.svg" alt="Logo NFC" />
+      <img src="/src/assets/logopassculture.svg" alt="Logo Pass Culture" />
     </div>
-  </div>
-  <div>
-    <img src={LogoMonbeliard} alt="Logo Montbéliard" />
-    <img src={LogoNFC} alt="Logo NFC" />
-    <img src={LogoPC} alt="Logo Pass Culture" />
   </div>
 </Layout>
+

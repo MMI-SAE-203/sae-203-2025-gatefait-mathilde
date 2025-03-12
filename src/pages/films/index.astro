@@ -1,6 +1,10 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+
+import { allFilms} from "../../../backend/backend.mjs";
+const films = await allFilms();
+console.log(films);
 ---
 
 <Layout>
@@ -9,4 +13,31 @@ import Intro from "../../components/Intro.astro";
     image="src/assets/films.webp"
     texte="Vous trouverez ici l’ensemble des films proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passez un bon moment de partage et d’horreur."
   />
+
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    {
+      films.map((film) => (
+        <div class="border-2 border-gray-200 p-4 m-4">
+          <ul>
+            <li>
+              <img
+                src={film.imgUrl}
+                alt={`Affiche du film ${film.titre}`}
+                class="w-full h-auto"
+              />
+            </li>
+            <li>Titre: {film.titre}</li>
+            <li>Réalisateur : {film.realisateur}</li>
+          </ul>
+          <a href={`/films/${film.id}`} class="text-blue-500 underline">
+            Découvrir le film
+          </a>
+        </div>
+      ))
+    }
+  </div>
+  <p>
+    Découvrez la suite du programme et des activités sur place. Prend ton billet
+    sans flipper dès maintenant en cliquant ci-dessus
+  </p>
 </Layout>

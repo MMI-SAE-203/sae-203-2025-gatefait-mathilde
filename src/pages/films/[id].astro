@@ -1,6 +1,15 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+
+const { id } = Astro.params;
+const films = await OneID(id);
+if (!films) {
+  return Astro.redirect("/films");
+}
+
+import { OneID } from "../../../backend/backend.mjs";
+const film= await OneID(id);
 ---
 
 <Layout>
@@ -9,4 +18,22 @@ import Intro from "../../components/Intro.astro";
     image="src/assets/films.webp"
     texte="Ici nous allons nous intéresser plus en détail à la mise en avant d’un film."
   />
+  <div class="">
+    <h2>{film.titre}</h2>
+  </div>
+  <img src={film.imageUrl} />
+  <li>Date de sortie : {film.date_sortie}</li>
+  <li>Genre : {film.genre}</li>
+  <li>Synopsis : {film.synopsis}</li>
+  <li>Casting : {film.casting}</li>
+  <li>Date de projection : {film.date_projection}</li>
+  <li>Réalisateur : {film.realisateur}</li>
+  <li>Durée : {film.duree}</li>
+  <li>Langue : {film.langue}</li>
+  <li>Production : {film.production}</li>
+  <li>
+    <a href={film.bande_annonce} class="text-blue-500 underline">
+      Découvrir le film
+    </a>
+  </li>
 </Layout>

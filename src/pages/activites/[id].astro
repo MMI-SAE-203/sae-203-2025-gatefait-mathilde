@@ -1,6 +1,14 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+
+const { id } = Astro.params;
+const activites = await OneIDAct(id);
+if (!activites) {
+  return Astro.redirect("/activites");
+}
+import { OneIDAct } from "../../../backend/backend.mjs";
+const activite = await OneIDAct(id);
 ---
 
 <Layout>
@@ -9,4 +17,11 @@ import Intro from "../../components/Intro.astro";
     image="src/assets/activites.webp"
     texte="Ici nous allons nous intéresser plus en détail à la mise en avant d’un film."
   />
+  <h2>{activite.nom}</h2>
+  <img src={activite.imageUrl} />
+  <li>Date de sortie : {activite.date_et_heure}</li>
+  <li>Genre : {activite.type_activite}</li>
+  <li>Synopsis : {activite.lieu}</li>
+  <li>Casting : {activite.description}</li>
+  <li>Date de projection : {activite.invite}</li>
 </Layout>

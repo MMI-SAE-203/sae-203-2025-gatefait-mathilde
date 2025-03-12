@@ -1,5 +1,31 @@
 @import "tailwindcss";
 
-@theme {
-    
+
+@layer base {
+    body {
+        font-family: 'Alef', sans-serif;
+        font-size: 17px;
+        color: white;
+        background: black;
+    }
+
+    h1 {
+    font-family: 'Creepster', system-ui;
+    font-size: 67px;
+    }
+
+    h2 {
+    font-family: 'Creepster', system-ui;
+    font-size: 36px;
+    }
+
+    h3 {
+    font-family: 'Creepster', system-ui;
+    font-size: 23px;
+    }
+
+    button {
+    font-family: 'Creepster', system-ui;
+    font-size: 36px;
+}
 }

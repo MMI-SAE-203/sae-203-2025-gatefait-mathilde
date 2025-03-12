@@ -1,6 +1,14 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+
+const { id } = Astro.params;
+const invites = await OneIDInv(id);
+if (!invites) {
+  return Astro.redirect("/invites");
+}
+import { OneIDInv } from "../../../backend/backend.mjs";
+const invite = await OneIDInv(id);
 ---
 
 <Layout>
@@ -9,4 +17,11 @@ import Intro from "../../components/Intro.astro";
     image="src/assets/invites.webp"
     texte="Ici nous allons nous intéresser plus en détail à invité qui viendra nous vendre sa passion."
   />
+  <div>
+    <h2>{invites.nom} {invites.prenom}</h2>
+    <img src={invites.imageUrl} />
+    <li>Rôle : {invites.role}</li>
+    <li>Email : {invites.email}</li>
+    <li>Biographie : {invites.biographie}</li>
+  </div>
 </Layout>

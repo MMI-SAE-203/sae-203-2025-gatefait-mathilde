@@ -1,6 +1,10 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+
+import { allInvitesByAgentName } from "../../../backend/backend.mjs";
+const invites = await allInvitesByAgentName();
+console.log(invites);
 ---
 
 <Layout>
@@ -9,4 +13,27 @@ import Intro from "../../components/Intro.astro";
     image="src/assets/invites.webp"
     texte="Venez rencontrer ces passionnés qui partagent leurs expériences, anecdotes et secrets de tournage à travers des conférences, des ateliers, et des séances de dédicaces."
   />
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+    {
+      invites.map((invite) => (
+        <div class="border-2 border-gray-200 p-4 m-4">
+          <ul>
+            <li>
+              <img
+                src={invite.imgUrl}
+                alt={`Affiche du film ${invite.nom}`}
+                class="w-full h-auto"
+              />
+            </li>
+            <li>Nom: {invite.nom}</li>
+            <li>Prénom : {invite.prenom}</li>
+            <li>Rôle : {invite.role}</li>
+          </ul>
+          <a href={`/invites/${invite.id}`} class="text-blue-500 underline">
+            Découvrir l'invité
+          </a>
+        </div>
+      ))
+    }
+  </div>
 </Layout>
