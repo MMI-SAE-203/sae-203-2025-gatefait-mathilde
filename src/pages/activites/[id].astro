@@ -25,5 +25,7 @@ if (!activite) {
   <li>Type d'activités : {activite.type_activite}</li>
   <li>Lieu : {activite.lieu}</li>
   <li>Description : {activite.description}</li>
-  <li>Invité : {activite.expand?.invites.nom}</li>
+  <li>
+    Invité : {activite.expand?.invites.nom + " "+ activite.expand?.invites.prenom}
+  </li>
 </Layout>

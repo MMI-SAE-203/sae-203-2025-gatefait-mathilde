@@ -3,6 +3,12 @@ import Layout from "../layouts/Base.astro";
 import Intro from "../components/Intro.astro";
 import LogoFacebook from "../assets/facebook.svg";
 import LogoInstagram from "../assets/instagram.svg";
+import Button from "../components/Bouton.astro";
+
+let message = "";
+if (Astro.request.method === "POST") {
+  const formData = await Astro.request.formData();
+}
 ---
 
 <Layout>
@@ -11,6 +17,60 @@ import LogoInstagram from "../assets/instagram.svg";
     image="src/assets/contact.webp"
     texte="Amateurs et réalisateurs, inscrivez-vous sur le planning pour que votre film ou court-métrage soit projeté lors des séances spéciales nouveaux réalisateurs. Mettez en avant votre travail et obtenez une splendide visibilité. "
   />
+
+  <form action="#" method="POST" class="flex flex-col gap-4">
+    <!-- Champ Nom -->
+    <div>
+      <label for="name" class="block font-semibold">Nom</label>
+      <input
+        type="text"
+        id="name"
+        name="name"
+        required
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+      />
+    </div>
+
+    <!-- Champ Email -->
+    <div>
+      <label for="email" class="block font-semibold">Email</label>
+      <input
+        type="email"
+        id="email"
+        name="email"
+        required
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+      />
+    </div>
+
+    <!-- Champ Sujet -->
+    <div>
+      <label for="subject" class="block font-semibold">Sujet</label>
+      <input
+        type="text"
+        id="subject"
+        name="subject"
+        required
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+      />
+    </div>
+
+    <!-- Champ Message -->
+    <div>
+      <label for="message" class="block font-semibold">Message</label>
+      <textarea
+        id="message"
+        name="message"
+        rows="4"
+        required
+        class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-red-500"
+      ></textarea>
+    </div>
+
+    <!-- Bouton Envoyer -->
+    <Button Button="Envoyer" />
+  </form>
+
   <div>
     <h2>Contact</h2>
     <p>Le Colisée</p>
@@ -18,12 +78,10 @@ import LogoInstagram from "../assets/instagram.svg";
     <p>25200 Montbéliard</p>
     <p>lecolise@gmail.com</p>
     <p>03 81 94 53 89</p>
-    <a href="https://facebook.com" aria-label="facebook">
-      <LogoFacebook /></a>
-    <a href="https://instagram.com" aria-label="instagram"> 
-      <LogoInstagram /></a>
+    <a href="https://facebook.com" aria-label="facebook"> <LogoFacebook /></a>
+    <a href="https://instagram.com" aria-label="instagram">
+      <LogoInstagram /></a
+    >
   </div>
   <img src="src/assets/fantomes.webp" alt="Fantomes" />
 </Layout>
-
-

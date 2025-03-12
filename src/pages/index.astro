@@ -19,27 +19,42 @@ import Button from "../components/Bouton.astro";
         avec la période d’halloween, ce dernier se déroulera pendant les nuits
         du 29, 30 et 31 octobre 2024.
       </p>
-      <h2 class="mt-10">Apperçus Programme</h2>
-      <div class="flex gap-7 mt-15 mb-15">
-        <div class="bg-white rounded-xl text-black p-4 text-center">
-          <p>29/10</p>
-          <p>17h - 19h</p>
-          <p>récolte de bonbons</p>
-          <p>ville</p>
+
+      <nav>
+        <h2>Apperçus programme</h2>
+
+        <div class="relative">
+          <div
+            class="flex gap-7 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-4"
+          >
+            <div
+              class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+            >
+              <p>29/10</p>
+              <p>17h - 19h</p>
+              <p>Récolte de bonbons</p>
+              <p>Ville</p>
+            </div>
+            <div
+              class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+            >
+              <p>30/10</p>
+              <p>19h - 20h</p>
+              <p>Loup-garou géant</p>
+              <p>Salle 10</p>
+            </div>
+            <div
+              class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+            >
+              <p>31/10</p>
+              <p>20h - 21h</p>
+              <p>Projection court-métrage</p>
+              <p>Salle 2</p>
+            </div>
+          </div>
         </div>
-        <div class="bg-white rounded-xl text-black p-4 text-center">
-          <p>30/10</p>
-          <p>19h - 20h</p>
-          <p>loup garou géanat</p>
-          <p>salle 10</p>
-        </div>
-        <div class="bg-white rounded-xl text-black p-4 text-center">
-          <p>31/10</p>
-          <p>20h - 21h</p>
-          <p>projection court métrage</p>
-          <p>salle 2</p>
-        </div>
-      </div>
+      </nav>
+
       <div class="text-right underline">
         <a class="" href="../pages/..">voir la programmation complète</a>
       </div>
@@ -75,4 +90,3 @@ import Button from "../components/Bouton.astro";
     </div>
   </div>
 </Layout>
-

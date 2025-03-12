@@ -3,12 +3,80 @@ import Logo from "../assets/logo.svg";
 import LogoMenu from "../assets/menu.svg";
 ---
 
-<nav
-  class="flex bg-gradient-to-b from-red-900 to-black text-center text-white font-bold uppercase space-x-3"
+<header
+  class="px-6 py-4 fixed top-0 z-10 w-full flex items-stretch justify-between transition-all duration-300 ease-in-out bg-gradient-to-b from-red-900 to-black lg:py-0 lg:bg-black"
 >
-  <Logo />
-  <a href="/">
-    <h3>Festiv'Halloween</h3>
-  </a>
-  <LogoMenu />
-</nav>
+  <div class="flex items-center gap-4 lg:flex-row-reverse">
+    <a href="/" aria-label="Accueil">
+      <Logo />
+    </a>
+  </div>
+  <div>
+    <button
+      class="group relative z-20 flex h-6 w-8 flex-col justify-between *:h-[2px] *:w-full *:bg-white *:transition-all *:duration-300 *:ease lg:hidden"
+      id="menu-btn"
+      aria-label="Menu"
+      aria-controls="menu"
+      aria-expanded="false"
+    >
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav
+      class="visible fixed z-10 inset-0 bg-black text-2xl text-white opacity-100 transition-all duration-300 ease-in-out max-lg:aria-hidden:invisible max-lg:aria-hidden:opacity-0 lg:relative lg:flex lg:items-center lg:bg-transparent lg:text-sm lg:font-bold lg:uppercase lg:tracking-wide lg:text-white lg:opacity-100"
+      id="menu"
+      aria-hidden="true"
+    >
+      <ul
+        class="mt-[25vh] mx-16 lg:m-0 lg:flex *:relative *:overflow-hidden *:lg:before:absolute *:lg:before:bottom-0 *:lg:before:left-0 *:lg:before:h-2 *:lg:before:w-full *:lg:before:translate-y-2 *:lg:before:bg-black *:lg:before:transition-all *:lg:before:duration-300 *:lg:before:ease-in-out *:lg:hover:before:translate-y-0"
+      >
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/">Festiv'halloween</a>
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/Programmation">Programme</a>
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/../../films/">Filmographie</a>
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/../../activites">Activités</a>
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/../../invites">Invités</a>
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/Infospratiques"
+            >Infos pratiques</a
+          >
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/Apropos">À propos</a>
+        </li>
+        <li>
+          <a class="block px-5 py-4 lg:py-8" href="/Contact">Contact</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  // On cible les éléments à modifier
+  const toggle = document.querySelector("#menu-btn");
+  const nav = document.querySelector("#menu");
+  const page = document.body;
+
+  // Vérifier si les éléments existent avant d'ajouter l'événement
+  if (toggle && nav) {
+    toggle.addEventListener("click", () => {
+      const isOpen = toggle.ariaExpanded === "true";
+      const isClosed = !isOpen;
+      // Mise à jour des attributs ARIA pour accessibilité
+      toggle.ariaExpanded = String(isClosed);
+      nav.ariaHidden = String(isOpen);
+      page.classList.toggle("noscroll", isClosed);
+    });
+  }
+</script>
