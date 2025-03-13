@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+import Button from "../../components/Bouton.astro";
 
 const { id } = Astro.params;
 const invites = await OneIDInv(id);
@@ -15,13 +16,34 @@ const invite = await OneIDInv(id);
   <Intro
     title="Fiche invité"
     image="/src/assets/invites.webp"
-    texte="Ici nous allons nous intéresser plus en détail à invité qui viendra nous vendre sa passion."
+    texte="Ici nous allons nous intéresser plus en détail à cet invité qui viendra partager sa passion."
   />
-  <div>
-    <h2>{invites.nom} {invites.prenom}</h2>
-    <img src={invites.imageUrl} />
-    <li>Rôle : {invites.role}</li>
-    <li>Email : {invites.email}</li>
-    <li>Biographie : {invites.biographie}</li>
+  <div class="flex justify-center mt-7 lg:mt-10">
+    <div class="max-w-4xl mx-4 p-6 bg-white rounded-2xl shadow-lg lg:p-10">
+      <h2 class="text-3xl font-bold text-center text-gray-900">
+        {invites.nom}
+        {invites.prenom}
+      </h2>
+      <div class="lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+        <div class="flex justify-center">
+          <img
+            src={invites.imageUrl}
+            alt={`Photo de ${invites.nom} ${invites.prenom}`}
+            class="rounded-xl shadow-md w-full max-w-md object-cover"
+          />
+        </div>
+        <ul class="mt-6 space-y-3 text-gray-700 lg:mt-0">
+          <li><span class="font-semibold">Rôle :</span> {invites.role}</li>
+          <li><span class="font-semibold">Email :</span> {invites.email}</li>
+          <li>
+            <span class="font-semibold">Biographie :</span>
+            <p class="mt-2 text-justify">{invites.biographie}</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-6">
+    <Button Button="Invités" />
   </div>
 </Layout>
