@@ -1,16 +1,16 @@
 ---
+import { OneID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
 import Button from "../../components/Bouton.astro";
 
 const { id } = Astro.params;
-const films = await OneID(id);
-if (!films) {
+const film = await OneID(id);
+console.log(film);
+
+if (!film) {
   return Astro.redirect("/films");
 }
-
-import { OneID } from "../../../backend/backend.mjs";
-const film = await OneID(id);
 ---
 
 <Layout>
@@ -63,11 +63,19 @@ const film = await OneID(id);
               🎬 Voir la bande annonce
             </a>
           </li>
+          <li>
+            <span class="font-semibold">Invité :</span>
+            {
+              film.expand?.invites
+                ? film.expand.invites.nom + " " + film.expand.invites.prenom
+                : "Aucun invité pour ce film"
+            }
+          </li>
         </ul>
       </div>
     </div>
   </div>
   <div class="flex justify-center mt-6">
-    <Button Button="Filmographie" />
+    <Button text="Filmographie" url="/films"  />
   </div>
 </Layout>

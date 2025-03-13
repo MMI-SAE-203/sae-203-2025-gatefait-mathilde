@@ -11,7 +11,9 @@ import Button from "../components/Bouton.astro";
     texte="Retrouvez ici toutes les informations importantes concernant l’accessibilité du festival. Adresse, transports, restauration et contact à votre disposition. Le cinéma de Montbéliard transformé en temple de l’horreur !!"
   />
   <img
-    class="mt-20 mb-20"
+    class="mt-20 mb-20
+    w-full
+    h-full"
     src="src/assets/destination.webp"
     alt="infos pratiques"
   />
@@ -50,7 +52,7 @@ import Button from "../components/Bouton.astro";
       <p>Pass 1 jour : 15€</p>
       <p>Pass 2 jour : 28€</p>
       <p>Pass 3 jour : 40€</p>
-      <Button Button="Billeterie" />
+      <Button text="Contact" url="Contact"/>
     </div>
   </div>
 </Layout>

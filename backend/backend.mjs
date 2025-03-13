@@ -40,7 +40,7 @@ export async function allInvitesByAgentName() {
 
 //film par son id
 export async function OneID(id) {
-    let film = await pb.collection('films').getOne(id) ;
+    let film = await pb.collection('films').getOne(id, { expand: 'invites' }) ;
     film.imageUrl = pb.files.getURL(film, film.image);
     return film; 
 }
