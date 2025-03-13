@@ -91,7 +91,7 @@ export async function allFilmsDate(date_projection) {
 export async function filterByCategory(category) {
     try {
         let films = await pb.collection("films").getFullList({
-            filter: `categories ?~ "${category}"`, // Utilisation de ?~ pour les tableaux
+            filter: `categories ?~ "${category}"`, 
         });
 
         films = films.map((film) => {

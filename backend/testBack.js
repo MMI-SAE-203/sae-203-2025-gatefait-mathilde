@@ -95,7 +95,6 @@ try {
 */
 //filter films par categorie
 
-
 const test = async () => {
   try {
     const categories = "Horreur"; // Ex. de catégorie

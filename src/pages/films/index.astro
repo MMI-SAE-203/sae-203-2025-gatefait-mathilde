@@ -24,7 +24,6 @@ if (Astro.request.method == "POST") {
   }
 }
 
-// Trier les films par date de projection
 const filmsByDate = films.reduce((acc, film) => {
   const date = new Date(film.date_projection).toLocaleDateString("fr-FR", {
     weekday: "long",
