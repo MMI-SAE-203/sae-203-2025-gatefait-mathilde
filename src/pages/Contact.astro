@@ -4,11 +4,6 @@ import Intro from "../components/Intro.astro";
 import LogoFacebook from "../assets/facebook.svg";
 import LogoInstagram from "../assets/instagram.svg";
 import Button from "../components/Bouton.astro";
-
-let message = "";
-if (Astro.request.method === "POST") {
-  const formData = await Astro.request.formData();
-}
 ---
 
 <Layout>
@@ -20,11 +15,9 @@ if (Astro.request.method === "POST") {
   <form
     action="#"
     method="POST"
-    class="max-w-lg mx-4 lg:mx-auto bg-white p-6 rounded-2xl shadow-lg mt-10 mb-10"
+    class="max-w-lg mx-4 lg:mx-auto bg-white text-black p-6 rounded-2xl shadow-lg mt-10 mb-10"
   >
-    <h3 class=" text-center text-black mb-6">
-      Contactez-nous
-    </h3>
+    <h3 class="text-center text-black mb-6">Contactez-nous</h3>
     <div class="space-y-4">
       <div>
         <label for="name" class="block font-semibold text-gray-700">Nom</label>
@@ -75,6 +68,7 @@ if (Astro.request.method === "POST") {
     </div>
     <Button text="Envoyer" />
   </form>
+
   <div class="ml-4 mr-4">
     <h2 class="mb-6">Contact</h2>
     <p>Le Colisée</p>
