@@ -91,26 +91,25 @@ export async function allFilmsDate(date_projection) {
 export async function filterByCategory(category) {
     try {
         let films = await pb.collection("films").getFullList({
-            filter: `categorie = "${category}"`,
+            filter: `categories ?~ "${category}"`, // Utilisation de ?~ pour les tableaux
         });
+
         films = films.map((film) => {
-            film.img = pb.files.getURL(film, film.imgUrl);
+            film.imgUrl = pb.files.getURL(film, film.image);
             return film;
         });
+
         return {
             success: true,
             films: films,
-            message: "Les événements ont été filtrés avec succès.",
-        }
+            message: "Les films ont été filtrés avec succès.",
+        };
     } catch (error) {
+        console.error("Erreur dans filterByCategory:", error);
         return {
             success: false,
             films: [],
-            message: "Une erreur est survenue lors du filtrage des événements: " + error,
-        }
+            message: "Une erreur est survenue lors du filtrage des films: " + error,
+        };
     }
 }
-
-
-
-
