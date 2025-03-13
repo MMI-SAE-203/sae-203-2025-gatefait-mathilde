@@ -1,8 +1,9 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+import Button from "../../components/Bouton.astro";
 
-import { allFilms} from "../../../backend/backend.mjs";
+import { allFilms } from "../../../backend/backend.mjs";
 const films = await allFilms();
 console.log(films);
 ---
@@ -13,31 +14,36 @@ console.log(films);
     image="/src/assets/films.webp"
     texte="Vous trouverez ici l’ensemble des films proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passez un bon moment de partage et d’horreur."
   />
-
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
     {
       films.map((film) => (
-        <div class="border-2 border-gray-200 p-4 m-4">
-          <ul>
+        <div class="p-4 m-4 bg-white flex flex-col rounded-xl shadow-lg">
+          <ul class="flex flex-col items-center justify-between h-full">
             <li>
               <img
                 src={film.imgUrl}
                 alt={`Affiche du film ${film.titre}`}
-                class="w-full h-auto"
+                class="w-full h-auto mb-3 rounded-xl"
               />
             </li>
-            <li>Titre: {film.titre}</li>
-            <li>Réalisateur : {film.realisateur}</li>
+            <li class="text-center mb-2 text-black">{film.titre}</li>
+            <li class="text-center text-black">{film.realisateur}</li>
+            <li>
+              <a
+                href={`/films/${film.id}`}
+                class="block text-center text-white rounded-xl bg-red-900 p-2 mt-2 w-full"
+              >
+                Découvrir le film
+              </a>
+            </li>
           </ul>
-          <a href={`/films/${film.id}`} class="text-blue-500 underline">
-            Découvrir le film
-          </a>
         </div>
       ))
     }
   </div>
-  <p>
+  <p class="mt-10 mr-4 ml-4">
     Découvrez la suite du programme et des activités sur place. Prend ton billet
     sans flipper dès maintenant en cliquant ci-dessus
   </p>
+  <Button Button="Invités" href="/invites"/>
 </Layout>

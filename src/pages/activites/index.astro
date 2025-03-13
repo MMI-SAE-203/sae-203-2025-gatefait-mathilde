@@ -13,23 +13,28 @@ console.log(activites);
     image="/src/assets/activites.webp"
     texte="Vous trouverez ici l’ensemble des activités proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passez un bon moment de partage et d’horreur."
   />
-  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4">
+  <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
     {
       activites.map((activite) => (
-        <div class="border-2 border-gray-200 p-4 m-4">
+        <div class="p-4 m-4 bg-white flex flex-col rounded-xl shadow-lg">
           <ul>
             <li>
               <img
                 src={activite.imgUrl}
                 alt={`Affiche du film ${activite.nom}`}
-                class="w-full h-auto"
+                class="w-full h-auto mb-3 rounded-xl"
               />
             </li>
-            <li>Nom: {activite.nom}</li>
-            <li>Type : {activite.type_activite}</li>
+            <li class="text-center mb-2 text-black">{activite.nom}</li>
+            <li class="text-center mb-2 text-black">
+              {activite.type_activite}
+            </li>
           </ul>
-          <a href={`/activites/${activite.id}`} class="text-blue-500 underline">
-            En savoir plus sur l'activité
+          <a
+            href={`/activites/${activite.id}`}
+            class="block text-center text-white rounded-xl bg-red-900 p-2 mt-2 w-full"
+          >
+            Découvrir l'activité
           </a>
         </div>
       ))

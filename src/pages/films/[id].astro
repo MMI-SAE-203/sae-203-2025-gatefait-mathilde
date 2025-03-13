@@ -9,7 +9,7 @@ if (!films) {
 }
 
 import { OneID } from "../../../backend/backend.mjs";
-const film= await OneID(id);
+const film = await OneID(id);
 ---
 
 <Layout>
@@ -18,22 +18,28 @@ const film= await OneID(id);
     image="/src/assets/films.webp"
     texte="Ici nous allons nous intéresser plus en détail à la mise en avant d’un film."
   />
-  <div class="">
-    <h2>{film.titre}</h2>
+  <div>
+    <h2 class="ml-4 mt-5">{film.titre}</h2>
   </div>
-  <img src={film.imageUrl} />
-  <li>Date de sortie : {film.date_sortie}</li>
-  <li>Genre : {film.genre}</li>
-  <li>Synopsis : {film.synopsis}</li>
-  <li>Casting : {film.casting}</li>
-  <li>Date de projection : {film.date_projection}</li>
-  <li>Réalisateur : {film.realisateur}</li>
-  <li>Durée : {film.duree}</li>
-  <li>Langue : {film.langue}</li>
-  <li>Production : {film.production}</li>
-  <li>
-    <a href={film.bande_annonce} class="text-blue-500 underline">
-      Bande annonce
-    </a>
-  </li>
+  <div>
+    <div class="flex justify-center mt-5 mb-7">
+      <img src={film.imageUrl} />
+    </div>
+    <ul class="mr-4 ml-4">
+      <li>Réalisateur : {film.realisateur}</li>
+      <li>Casting : {film.casting}</li>
+      <li>Date de sortie : {film.date_sortie}</li>
+      <li>Genre : {film.genre}</li>
+      <li>Durée : {film.duree}</li>
+      <li>Langue : {film.langue}</li>
+      <li>Production : {film.production}</li>
+      <li>Date de projection : {film.date_projection}</li>
+      <li>Synopsis : {film.synopsis}</li>
+      <li>
+        <a href={film.bande_annonce} class="text-blue-500 underline">
+          Bande annonce
+        </a>
+      </li>
+    </ul>
+  </div>
 </Layout>
