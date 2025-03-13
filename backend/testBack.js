@@ -1,7 +1,7 @@
 //Mathilde Gatefait TDB2 
 
 import { allFilms,allActivites,allInvitesByAgentName,OneID,OneIDAct,OneIDInv,
-    ActInvitesById,ActInvitesByName,updateActiviteById} from './backend.mjs'
+    ActInvitesById,ActInvitesByName,updateActiviteById,filterByCategory,allFilmsDate} from './backend.mjs'
 
 
 /* films trié par date de projection
@@ -74,7 +74,7 @@ console.log(records) ;
 } catch (e) {
 console.error(e) ;
 }
-*/
+
 
 //modifier info activité
 const data = {
@@ -82,3 +82,29 @@ const data = {
 "type_activite" : "atelier",
 };  
 await updateActiviteById('3k6z7q443u17hvx',data);
+
+
+// films trié par date de projection
+try {
+  const date_projection = "2025-10-30"; 
+  const records = await allFilmsDate(date_projection);
+  console.log(records);
+} catch (e) {
+  console.error(e);
+}
+*/
+//filter films par categorie
+
+
+const test = async () => {
+  try {
+    const categories = "Horreur"; // Ex. de catégorie
+    const records = await filterByCategory(categories);
+    console.log("Films trouvés :", records);
+  } catch (e) {
+    console.error("Erreur :", e);
+  }
+};
+
+test();
+

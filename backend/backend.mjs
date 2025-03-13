@@ -77,4 +77,40 @@ export async function updateActiviteById(id, data) {
   await pb.collection('activites').update(id, data) ;
 } 
 
+//filtrer par date
+export async function allFilmsDate(date_projection) {
+  const films = await pb.collection('films').getFullList({
+    filter: `date_projection < '${date_projection}'` 
+  });
+
+  return films;
+}
+
+
+//filter films par categorie
+export async function filterByCategory(category) {
+    try {
+        let films = await pb.collection("films").getFullList({
+            filter: `categorie = "${category}"`,
+        });
+        films = films.map((film) => {
+            film.img = pb.files.getURL(film, film.imgUrl);
+            return film;
+        });
+        return {
+            success: true,
+            films: films,
+            message: "Les événements ont été filtrés avec succès.",
+        }
+    } catch (error) {
+        return {
+            success: false,
+            films: [],
+            message: "Une erreur est survenue lors du filtrage des événements: " + error,
+        }
+    }
+}
+
+
+
 
