@@ -6,21 +6,25 @@ import Button from "../components/Bouton.astro";
 
 <Layout>
   <div>
-    <img src="src/assets/accueil.webp" alt="accueil" />
+    <img
+      class="w-full h-96 object-cover"
+      src="src/assets/accueil.webp"
+      alt="accueil"
+    />
     <div class="ml-4 mr-4">
-      <div class="-mt-25 text-center">
+      <div class="-mt-80 text-center lg:-mt-60">
         <h1>Festiv' Halloween</h1>
         <h3>29 - 31 octobre 2025</h3>
       </div>
-      <p class="mt-20">
+      <p class="mt-30 font-bold lg:mt-40">
         Le festiv’halloween est un festival de cinéma axé sur l’horreur. Pour
         passer un agréable moment de peur et de terreur, passez 3 nuits avec
         nous pour un marathon de films jusqu’au bout de la nuit. En harmonie
         avec la période d’halloween, ce dernier se déroulera pendant les nuits
         du 29, 30 et 31 octobre 2024.
       </p>
-      <nav class="mt-15 mb-15">
-        <h2 class="mb-5">Apperçus programme</h2>
+      <nav class="mt-15 mb-20">
+        <h2 class="mb-9">Apperçus programme</h2>
         <div class="relative">
           <div
             class="flex gap-7 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-4"
@@ -52,7 +56,7 @@ import Button from "../components/Bouton.astro";
           </div>
         </div>
         <div class="text-right underline mt-5">
-          <a href="../pages/..">voir la programmation complète</a>
+          <a href="../Programmation">voir la programmation complète</a>
         </div>
       </nav>
     </div>
@@ -85,26 +89,30 @@ import Button from "../components/Bouton.astro";
         </div>
       </div>
     </nav>
-    <a class="block text-right underline mt-15 mr-4" href="../pages/.."
+    <a class="block text-right underline mt-15 mr-4" href="invites"
       >voir tous les invités</a
     >
   </div>
   <div class="mt-15 mb-15">
     <h2 class="mb-5 mr-4 ml-4">Apperçus</h2>
-    <img src="src/assets/destination.webp" alt="carte" />
+    <img class="w-full h-full" src="src/assets/destination.webp" alt="carte" />
     <address class="mb-5 text-center mr-4 ml-4 mt-5">
       Le Colisée 8 Rue Henri Mouhot <br /> 25200 Montbéliard
     </address>
-    <a class="block text-right underline mr-4" href="../pages/.."
+    <a class="block text-right underline mr-4 mt-10" href="Infospratiques"
       >voir les infos pratiques</a
     >
   </div>
+
+
   <div>
     <img class="-mb-20 ml-35" src="src/assets/clown.webp" alt="clown" />
     <div class="ml-5">
-      <Button Button="Billeterie" />
+      <Button text="Billeterie" url="https://billetterie.lemoloco.com/" />
     </div>
   </div>
+
+
   <div class="flex justify-center gap-4">
     <img src="/src/assets/logomontbeliard.svg" alt="Logo Montbéliard" />
     <img src="/src/assets/logonfc.svg" alt="Logo NFC" />

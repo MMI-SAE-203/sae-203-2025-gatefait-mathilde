@@ -1,10 +1,12 @@
 ---
-const { Button } = Astro.props;
+const { text, url } = Astro.props;
 ---
 
-<div
-  class=" mt-20 mb-20 ml-5 px-6 py-2 m-7 text-center bg-red-900 text-white font-semibold rounded-lg shadow-md hover:bg-white transition"
+<a
+  href={url}
+  class="block w-fit mx-auto mt-20 mb-20 px-30 py-4 text-lg md:text-xl lg:text-2xl
+         text-center bg-red-900 text-white font-semibold rounded-xl shadow-lg
+         hover:bg-white hover:text-red-900 transition-all"
 >
-  <button>{Button}</button>
-
-</div>
+  {text}
+</a>
