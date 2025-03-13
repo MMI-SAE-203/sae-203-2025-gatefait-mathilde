@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Base.astro";
 import Intro from "../components/Intro.astro";
+import Button from "../components/Bouton.astro";
 ---
 
 <Layout>
@@ -9,5 +10,47 @@ import Intro from "../components/Intro.astro";
     image="src/assets/infospratiques.webp"
     texte="Retrouvez ici toutes les informations importantes concernant l’accessibilité du festival. Adresse, transports, restauration et contact à votre disposition. Le cinéma de Montbéliard transformé en temple de l’horreur !!"
   />
-  <p>ici on retrouveras toutes les infos suplemetaiers</p>
+  <img
+    class="mt-20 mb-20"
+    src="src/assets/destination.webp"
+    alt="infos pratiques"
+  />
+  <div class="ml-4 mr-4">
+    <div>
+      <img
+        class="float-right w-1/4"
+        src="src/assets/popcorn.webp"
+        alt="infos pratiques"
+      />
+      <h2 class="mb-5">Adresse</h2>
+      <adress
+        >Le Colisée <br /> 8 rue Henri Mouhot <br /> 25200 Montbéliard</adress
+      >
+    </div>
+    <div>
+      <h2 class="mb-5 mt-10">Transport</h2>
+      <p>À pied, cinq minutes de la gare</p>
+      <p>En voiture, parking gratuit à proximité</p>
+      <p>En bus, arrêt à 100 mètres</p>
+    </div>
+    <div>
+      <h2 class="mb-5 mt-10">Restauration</h2>
+      <p>Restauration sur place</p>
+      <p>Bar à cocktails</p>
+      <p>Foodtruck</p>
+      <p>Collaboration avec le restaurant le Colisée</p>
+    </div>
+    <div>
+      <h2 class="mb-5 mt-10">Hébergement</h2>
+      <p>Greet Hotel Montbéliard</p>
+      <p>Gîtesle Charle Montbéliard</p>
+    </div>
+    <div>
+      <h2 class="mb-5 mt-10">Prix</h2>
+      <p>Pass 1 jour : 15€</p>
+      <p>Pass 2 jour : 28€</p>
+      <p>Pass 3 jour : 40€</p>
+      <Button Button="Billeterie" />
+    </div>
+  </div>
 </Layout>
