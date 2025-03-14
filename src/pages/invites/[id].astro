@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
 import Button from "../../components/Bouton.astro";
+import EntreeInv from "../../assets/invites.webp";
 
 const { id } = Astro.params;
 const invites = await OneIDInv(id);
@@ -15,7 +16,7 @@ const invite = await OneIDInv(id);
 <Layout>
   <Intro
     title="Fiche invité"
-    image="/src/assets/invites.webp"
+    image={EntreeInv.src}
     texte="Ici nous allons nous intéresser plus en détail à cet invité qui viendra partager sa passion."
   />
   <div class="flex justify-center mt-7 lg:mt-10">
@@ -44,6 +45,6 @@ const invite = await OneIDInv(id);
     </div>
   </div>
   <div class="flex justify-center mt-6">
-    <Button text="Invités" url="/invites"/>
+    <Button text="Invités" url="/invites" />
   </div>
 </Layout>
