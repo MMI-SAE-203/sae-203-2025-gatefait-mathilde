@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
+import EntreeAct from "../../assets/activites.webp";
 
 import { allActivites } from "../../../backend/backend.mjs";
 const activites = await allActivites();
@@ -10,7 +11,7 @@ console.log(activites);
 <Layout>
   <Intro
     title="Activités"
-    image="/src/assets/activites.webp"
+    image={EntreeAct.src}
     texte="Vous trouverez ici l’ensemble des activités proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passez un bon moment de partage et d’horreur."
   />
   <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">

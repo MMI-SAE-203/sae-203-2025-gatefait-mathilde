@@ -3,6 +3,7 @@ import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
 import { OneIDAct } from "../../../backend/backend.mjs";
 import Button from "../../components/Bouton.astro";
+import EntreeAct from "../../assets/activites.webp";
 
 const { id } = Astro.params;
 
@@ -17,7 +18,7 @@ if (!activite) {
 <Layout>
   <Intro
     title="Activité détaillée"
-    image="/src/assets/activites.webp"
+    image={EntreeAct.src}
     texte="Ici nous allons nous intéresser plus en détail à cette activité."
   />
   <div class="flex justify-center mt-7 lg:mt-10">
