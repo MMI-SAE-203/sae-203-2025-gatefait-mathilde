@@ -4,12 +4,14 @@ import Intro from "../components/Intro.astro";
 import LogoFacebook from "../assets/facebook.svg";
 import LogoInstagram from "../assets/instagram.svg";
 import Button from "../components/Bouton.astro";
+import EntreeContact from "../assets/contact.webp";
+import Fantomes from "../assets/fantomes.webp"; 
 ---
 
 <Layout>
   <Intro
     title="Contact"
-    image="src/assets/contact.webp"
+    image={EntreeContact.src}
     texte="Amateurs et réalisateurs, inscrivez-vous sur le planning pour que votre film ou court-métrage soit projeté lors des séances spéciales nouveaux réalisateurs. Mettez en avant votre travail et obtenez une splendide visibilité. "
   />
   <form
@@ -83,5 +85,5 @@ import Button from "../components/Bouton.astro";
       >
     </div>
   </div>
-  <img src="src/assets/fantomes.webp" alt="Fantomes" />
+  <img src={Fantomes.src} alt="Fantomes" />
 </Layout>
