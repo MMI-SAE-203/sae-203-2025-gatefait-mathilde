@@ -1,0 +1,81 @@
+---
+import { OneID } from "../../../backend/backend.mjs";
+import Layout from "../../layouts/Base.astro";
+import Intro from "../../components/Intro.astro";
+import Button from "../../components/Bouton.astro";
+
+const { id } = Astro.params;
+const film = await OneID(id);
+console.log(film);
+
+if (!film) {
+  return Astro.redirect("/films");
+}
+---
+
+<Layout>
+  <Intro
+    title="Détails du film"
+    image="/src/assets/films.webp"
+    texte="Ici nous allons nous intéresser plus en détail à la mise en avant d’un film."
+  />
+  <div class="flex justify-center mt-7 lg:mt-10">
+    <div class="max-w-4xl mx-4 p-6 bg-white rounded-2xl shadow-lg lg:p-10">
+      <h2 class="text-3xl font-bold text-center text-gray-900">{film.titre}</h2>
+      <div class="lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+        <div class="flex justify-center">
+          <img
+            src={film.imageUrl}
+            alt={`Affiche du film ${film.titre}`}
+            class="rounded-xl shadow-md w-full max-w-md object-cover"
+          />
+        </div>
+        <ul class="mt-6 space-y-3 text-gray-700 lg:mt-0">
+          <li>
+            <span class="font-semibold">Réalisateur :</span>
+            {film.realisateur}
+          </li>
+          <li><span class="font-semibold">Casting :</span> {film.casting}</li>
+          <li>
+            <span class="font-semibold">Date de sortie :</span>
+            {film.date_sortie}
+          </li>
+          <li><span class="font-semibold">Genre :</span> {film.genre}</li>
+          <li><span class="font-semibold">Durée :</span> {film.duree}</li>
+          <li><span class="font-semibold">Langue :</span> {film.langue}</li>
+          <li>
+            <span class="font-semibold">Production :</span>
+            {film.production}
+          </li>
+          <li>
+            <span class="font-semibold">Date de projection :</span>
+            {film.date_projection}
+          </li>
+          <li>
+            <span class="font-semibold">Synopsis :</span>
+            <p class="mt-2 text-justify">{film.synopsis}</p>
+          </li>
+          <li class="mt-4">
+            <a
+              href={film.bande_annonce}
+              class="text-white bg-red-900 px-4 py-2 rounded-lg hover:bg-red-800 transition"
+            >
+              🎬 Voir la bande annonce
+            </a>
+          </li>
+          <li>
+            <span class="font-semibold">Invité :</span>
+            {
+              film.expand?.invites
+                ? film.expand.invites.nom + " " + film.expand.invites.prenom
+                : "Aucun invité pour ce film"
+            }
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-6">
+    <Button text="Filmographie" url="/films"  />
+  </div>
+</Layout>

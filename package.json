@@ -9,11 +9,15 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/netlify": "^6.2.3",
     "@fontsource/alef": "^5.2.5",
     "@fontsource/creepster": "^5.2.5",
     "@tailwindcss/vite": "^4.0.12",
     "astro": "^5.4.2",
     "pocketbase": "^0.25.2",
     "tailwindcss": "^4.0.12"
+  },
+  "devDependencies": {
+    "netlify-cli": "^19.0.2"
   }
 }

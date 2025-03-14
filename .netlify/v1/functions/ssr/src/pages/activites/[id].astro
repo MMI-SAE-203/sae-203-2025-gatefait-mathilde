@@ -1,0 +1,65 @@
+---
+import Layout from "../../layouts/Base.astro";
+import Intro from "../../components/Intro.astro";
+import { OneIDAct } from "../../../backend/backend.mjs";
+import Button from "../../components/Bouton.astro";
+
+const { id } = Astro.params;
+
+const activite = await OneIDAct(id);
+console.log(activite);
+
+if (!activite) {
+  return Astro.redirect("/activites");
+}
+---
+
+<Layout>
+  <Intro
+    title="Activité détaillée"
+    image="/src/assets/activites.webp"
+    texte="Ici nous allons nous intéresser plus en détail à cette activité."
+  />
+  <div class="flex justify-center mt-7 lg:mt-10">
+    <div class="max-w-4xl mx-4 p-6 bg-white rounded-2xl shadow-lg lg:p-10">
+      <h2 class="text-3xl font-bold text-center text-gray-900">
+        {activite.nom}
+      </h2>
+      <div class="lg:grid lg:grid-cols-2 lg:gap-6 mt-6">
+        <div class="flex justify-center">
+          <img
+            src={activite.imageUrl}
+            alt={`Image de l'activité ${activite.nom}`}
+            class="rounded-xl shadow-md w-full max-w-md object-cover"
+          />
+        </div>
+        <ul class="mt-6 space-y-3 text-gray-700 lg:mt-0">
+          <li>
+            <span class="font-semibold">Date :</span>
+            {activite.date_et_heure}
+          </li>
+          <li>
+            <span class="font-semibold">Type d'activité :</span>
+            {activite.type_activite}
+          </li>
+          <li><span class="font-semibold">Lieu :</span> {activite.lieu}</li>
+          <li>
+            <span class="font-semibold">Description :</span>
+            <p class="mt-2 text-justify">{activite.description}</p>
+          </li>
+          <li>
+            <span class="font-semibold">Invité :</span>
+            {
+              activite.expand?.invites.nom +
+                " " +
+                activite.expand?.invites.prenom
+            }
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="flex justify-center mt-6">
+    <Button text="Activités" url="/activites"/>
+  </div>
+</Layout>

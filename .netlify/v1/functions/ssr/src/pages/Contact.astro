@@ -1,0 +1,87 @@
+---
+import Layout from "../layouts/Base.astro";
+import Intro from "../components/Intro.astro";
+import LogoFacebook from "../assets/facebook.svg";
+import LogoInstagram from "../assets/instagram.svg";
+import Button from "../components/Bouton.astro";
+---
+
+<Layout>
+  <Intro
+    title="Contact"
+    image="src/assets/contact.webp"
+    texte="Amateurs et réalisateurs, inscrivez-vous sur le planning pour que votre film ou court-métrage soit projeté lors des séances spéciales nouveaux réalisateurs. Mettez en avant votre travail et obtenez une splendide visibilité. "
+  />
+  <form
+    action="#"
+    method="POST"
+    class="max-w-lg mx-4 lg:mx-auto bg-white text-black p-6 rounded-2xl shadow-lg mt-10 mb-10"
+  >
+    <h3 class="text-center text-black mb-6">Contactez-nous</h3>
+    <div class="space-y-4">
+      <div>
+        <label for="name" class="block font-semibold text-gray-700">Nom</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900"
+        />
+      </div>
+      <div>
+        <label for="email" class="block font-semibold text-gray-700"
+          >Email</label
+        >
+        <input
+          type="email"
+          id="email"
+          name="email"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900"
+        />
+      </div>
+      <div>
+        <label for="subject" class="block font-semibold text-gray-700"
+          >Sujet</label
+        >
+        <input
+          type="text"
+          id="subject"
+          name="subject"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900"
+        />
+      </div>
+      <div>
+        <label for="message" class="block font-semibold text-gray-700"
+          >Message</label
+        >
+        <textarea
+          id="message"
+          name="message"
+          rows="4"
+          required
+          class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-red-900"
+        ></textarea>
+      </div>
+    </div>
+    <Button text="Envoyer" />
+  </form>
+
+  <div class="ml-4 mr-4">
+    <h2 class="mb-6">Contact</h2>
+    <p>Le Colisée</p>
+    <p>8 rue Henri Mouhot</p>
+    <p>25200 Montbéliard</p>
+    <p>lecolise@gmail.com</p>
+    <p>03 81 94 53 89</p>
+    <div class="flex gap-6 mt-6 mb-">
+      <a href="https://facebook.com" aria-label="facebook"> <LogoFacebook /></a>
+      <a href="https://instagram.com" aria-label="instagram">
+        <LogoInstagram /></a
+      >
+    </div>
+  </div>
+  <img src="src/assets/fantomes.webp" alt="Fantomes" />
+</Layout>

@@ -1,0 +1,154 @@
+---
+import Layout from "../layouts/Base.astro";
+import Intro from "../components/Intro.astro";
+import Button from "../components/Bouton.astro";
+---
+
+<Layout>
+  <Intro
+    title="Programmation"
+    image="src/assets/programme.webp"
+    texte="Le programme se déroulera sur 3 nuits du 29 au 31 octobre 2024. Les soirées seront divisées en plusieurs parties avec de nombreuses activités. Petits et grands, venez au cinéma de Montbéliard, sauf si vous êtes des trouillards !!"
+  />
+  <div class="ml-4 mr-4">
+    <div>
+      <div class="flex items-center">
+        <h2 class="mb-14 mt-15 mr-4">Nuit du 29</h2>
+        <div class="w-full h-1 bg-white"></div>
+      </div>
+
+      <div class="relative">
+        <div
+          class="flex gap-7 overflow-x-auto scroll-smooth snap-x snap-mandatory md:scrollbar-thin scrollbar-thumb-gray-400 scrollbar-track-gray-200 pb-4 lg:justify-center"
+        >
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>enfant</p>
+            <p>17h - 19h</p>
+            <p>Hotel transylvanie/Casper</p>
+            <p>salle 4</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Tout public</p>
+            <p>19h - 20h</p>
+            <p>Loup garou géant</p>
+            <p>Hall du cinéma</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Tout public</p>
+            <p>20h - 21h</p>
+            <p>Projection court-métrage</p>
+            <p>Salle 2</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>+ 16 ans</p>
+            <p>21h - 4h</p>
+            <p>Shining/ Les cartes du mal/ Time cut</p>
+            <p>Salle 6</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center">
+        <h2 class="mb-14 mt-15 mr-4">Nuit du 30</h2>
+        <div class="w-full h-1 bg-white"></div>
+      </div>
+
+      <div class="relative">
+        <div
+          class="flex gap-7 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-4 lg:justify-center"
+        >
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Enfants</p>
+            <p>17h - 19h</p>
+            <p>Coraline, La famille addams</p>
+            <p>Salle 4</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Tout public</p>
+            <p>19h - 20h</p>
+            <p>Sculture citrouille</p>
+            <p>Salle 10</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Tout public</p>
+            <p>20h - 21h</p>
+            <p>Exposition</p>
+            <p>Salle 2</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>+ 16 ans</p>
+            <p>21h - 4h</p>
+            <p>Scream/ Sans un bruit/La dame blanche/Conjuring</p>
+            <p>Salle 6</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="flex items-center">
+        <h2 class="mb-14 mt-15 mr-4">Nuit du 31</h2>
+        <div class="w-full h-1 bg-white"></div>
+      </div>
+
+      <div class="relative">
+        <div
+          class="flex gap-7 overflow-x-auto scroll-smooth snap-x snap-mandatory scrollbar-hide pb-4 lg:justify-center"
+        >
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Enfants</p>
+            <p>17h - 19h</p>
+            <p>Récolte de bonbons</p>
+            <p>Ville</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Tout public</p>
+            <p>19h - 20h</p>
+            <p>Concours déguisement</p>
+            <p>Salle 10</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>Tout public</p>
+            <p>20h - 21h</p>
+            <p>Projection court-métrage</p>
+            <p>Salle 2</p>
+          </div>
+          <div
+            class="bg-white rounded-xl text-black p-4 text-center min-w-[200px] snap-center"
+          >
+            <p>+ 16 ans</p>
+            <p>21h - 4h</p>
+            <p>L’appart 7A/ Don’t move/Ça</p>
+            <p>Salle 2</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <Button text="Filmographie" url="films" />
+  <Button text="Activités" url="activites" />
+</Layout>

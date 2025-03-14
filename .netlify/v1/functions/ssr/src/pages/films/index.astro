@@ -1,0 +1,101 @@
+---
+import Layout from "../../layouts/Base.astro";
+import Intro from "../../components/Intro.astro";
+import Button from "../../components/Bouton.astro";
+
+import { allFilms, filterByCategory } from "../../../backend/backend.mjs";
+
+let films = await allFilms();
+let categories = ["Tout", "+16ans", "Court métrage", "Enfants"];
+
+if (Astro.request.method == "POST") {
+  const data = await Astro.request.formData();
+  const categorie = data.get("categorie");
+
+  if (categorie !== "Tout") {
+    const response = await filterByCategory(categorie);
+    if (response.success) {
+      films = response.films;
+    } else {
+      console.error(response.message);
+    }
+  } else {
+    films = await allFilms();
+  }
+}
+
+const filmsByDate = films.reduce((acc, film) => {
+  const date = new Date(film.date_projection).toLocaleDateString("fr-FR", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  });
+  if (!acc[date]) acc[date] = [];
+  acc[date].push(film);
+  return acc;
+}, {});
+---
+
+<Layout>
+  <Intro
+    title="Filmographie"
+    image="/src/assets/films.webp"
+    texte="Vous trouverez ici l’ensemble des films proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passer un bon moment de partage et d’horreur."
+  />
+
+  <form action="/films" method="post">
+    <label for="categorie">Filtrer par catégorie:</label>
+    <select name="categorie">
+      {
+        categories.map((categorie) => (
+          <option value={categorie}>{categorie}</option>
+        ))
+      }
+    </select>
+    <input
+      type="submit"
+      value="Filtrer"
+      class="text-blue-800 underline cursor-pointer"
+    />
+  </form>
+
+  <div id="films-container">
+    {
+      Object.entries(filmsByDate).map(([date, films]) => (
+        <div key={date} class="mb-12">
+          <h2 class="text-2xl font-bold mb-6 border-b-2 border-white pb-2 text-center">
+            {date}
+          </h2>
+          <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-4 text-xs">
+            {films.map((film) => (
+              <div
+                class="p-4 m-4 bg-white flex flex-col rounded-xl shadow-lg film-card"
+                data-genre={film.categories}
+              >
+                <ul class="flex flex-col items-center justify-between h-full">
+                  <li>
+                    <img
+                      src={film.imgUrl}
+                      alt={`Affiche du film ${film.titre}`}
+                      class="w-full h-auto mb-3 rounded-xl"
+                    />
+                  </li>
+                  <li class="text-center mb-2 text-black">{film.titre}</li>
+                  <li class="text-center text-black">{film.realisateur}</li>
+                  <li>
+                    <a
+                      href={`/films/${film.id}`}
+                      class="block text-center text-white rounded-xl bg-red-900 p-2 mt-2 w-full"
+                    >
+                      Découvrir le film
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            ))}
+          </div>
+        </div>
+      ))
+    }
+  </div>
+</Layout>
