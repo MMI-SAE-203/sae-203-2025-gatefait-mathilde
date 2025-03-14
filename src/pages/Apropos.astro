@@ -1,12 +1,13 @@
 ---
 import Layout from "../layouts/Base.astro";
 import Intro from "../components/Intro.astro";
+import EntreeApropos from "src/assets/apropos.webp";
 ---
 
 <Layout>
   <Intro
     title="À Propos"
-    image="src/assets/apropos.webp"
+    image={EntreeApropos}
     texte="Bienvenue sur la page officielle de notre festival de films d'horreur ! Découvrez l’histoire fascinante de cet événement unique, son équipe passionnée, et les valeurs qui façonnent chaque édition terrifiante."
   />
   <div class="m-4">
