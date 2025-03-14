@@ -2,26 +2,29 @@
 import Layout from "../layouts/Base.astro";
 import Intro from "../components/Intro.astro";
 import Button from "../components/Bouton.astro";
+import EntreeInfospratiques from "../assets/infospratiques.webp";
+import Destination from "../assets/destination.webp";
+import Popcorn from "../assets/popcorn.webp";
 ---
 
 <Layout>
   <Intro
     title="Infos pratiques"
-    image="src/assets/infospratiques.webp"
+    image={EntreeInfospratiques.src}
     texte="Retrouvez ici toutes les informations importantes concernant l’accessibilité du festival. Adresse, transports, restauration et contact à votre disposition. Le cinéma de Montbéliard transformé en temple de l’horreur !!"
   />
   <img
     class="mt-20 mb-20
     w-full
     h-full"
-    src="src/assets/destination.webp"
+    src={Destination.src}
     alt="infos pratiques"
   />
   <div class="ml-4 mr-4">
     <div>
       <img
         class="float-right w-1/4"
-        src="src/assets/popcorn.webp"
+        src={Popcorn.src}
         alt="infos pratiques"
       />
       <h2 class="mb-5">Adresse</h2>
@@ -52,7 +55,7 @@ import Button from "../components/Bouton.astro";
       <p>Pass 1 jour : 15€</p>
       <p>Pass 2 jour : 28€</p>
       <p>Pass 3 jour : 40€</p>
-      <Button text="Contact" url="Contact"/>
+      <Button text="Contact" url="Contact" />
     </div>
   </div>
 </Layout>
