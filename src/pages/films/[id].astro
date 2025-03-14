@@ -3,6 +3,7 @@ import { OneID } from "../../../backend/backend.mjs";
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
 import Button from "../../components/Bouton.astro";
+import EntreeFilms from "../../assets/films.webp";
 
 const { id } = Astro.params;
 const film = await OneID(id);
@@ -16,7 +17,7 @@ if (!film) {
 <Layout>
   <Intro
     title="Détails du film"
-    image="/src/assets/films.webp"
+    image={EntreeFilms.src}
     texte="Ici nous allons nous intéresser plus en détail à la mise en avant d’un film."
   />
   <div class="flex justify-center mt-7 lg:mt-10">
@@ -76,6 +77,6 @@ if (!film) {
     </div>
   </div>
   <div class="flex justify-center mt-6">
-    <Button text="Filmographie" url="/films"  />
+    <Button text="Filmographie" url="/films" />
   </div>
 </Layout>

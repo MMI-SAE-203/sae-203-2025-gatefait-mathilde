@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Base.astro";
 import Intro from "../../components/Intro.astro";
 import Button from "../../components/Bouton.astro";
+import EntreeFilms from "../../assets/films.webp";
 
 import { allFilms, filterByCategory } from "../../../backend/backend.mjs";
 
@@ -39,7 +40,7 @@ const filmsByDate = films.reduce((acc, film) => {
 <Layout>
   <Intro
     title="Filmographie"
-    image="/src/assets/films.webp"
+    image={EntreeFilms.src}
     texte="Vous trouverez ici l’ensemble des films proposés sur les 3 nuits du festival Festiv’Halloween. Petits et grands venez passer un bon moment de partage et d’horreur."
   />
 
